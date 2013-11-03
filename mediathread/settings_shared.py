@@ -12,21 +12,21 @@ import sys
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 ADMINS = (
-    ('admin', 'mediathread@example.com'),
+    ('john', 'john@novomancy.org'),
 )
 
 MANAGERS = ADMINS
 
-ALLOWED_HOSTS = ['.ccnmtl.columbia.edu', 'localhost']
+ALLOWED_HOSTS = ['.dartmouth.edu', 'localhost']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'mediathread',
-        'HOST': '',
-        'PORT': '',
-        'USER': '',
-        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'USER': 'mthread',
+        'PASSWORD': 'jZKqt4bUUn',
     }
 }
 
@@ -57,12 +57,12 @@ PROJECT_APPS = ['mediathread.main',
                 'mediathread.reports',
                 'mediathread.discussions']
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-NOSE_ARGS = [
-    '--with-coverage',
-    ('--cover-package=mediathread.main,mediathread.djangosherd,'
-     'mediathread.assetmgr,mediathread.projects'),
-]
+#TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+#NOSE_ARGS = [
+#    '--with-coverage',
+#    ('--cover-package=mediathread.main,mediathread.djangosherd,'
+#     'mediathread.assetmgr,mediathread.projects'),
+#]
 
 CACHE_BACKEND = 'locmem:///'
 
@@ -111,7 +111,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # Put application templates before these fallback ones:
-    "/var/www/mediathread/templates/",
+    "/var/www/vhosts/klein/mediathread/templates/",
     os.path.join(os.path.dirname(__file__), "deploy_specific/templates"),
     os.path.join(os.path.dirname(__file__), "templates"),
 )
@@ -140,7 +140,7 @@ INSTALLED_APPS = [
     'mediathread.reports',
     'mediathread.main',
     'south',
-    'django_nose',
+#    'django_nose',
     'compressor',
     'django_jenkins',
     'mediathread.taxonomy',
@@ -154,8 +154,8 @@ COMPRESS_PARSER = "compressor.parser.HtmlParser"
 THUMBNAIL_SUBDIR = "thumbs"
 EMAIL_SUBJECT_PREFIX = "[mediathread] "
 EMAIL_HOST = 'localhost'
-SERVER_EMAIL = "mediathread@example.com"
-PUBLIC_CONTACT_EMAIL = "mediathread@example.com"
+SERVER_EMAIL = "john@novomancy.org"
+PUBLIC_CONTACT_EMAIL = "john@novomancy.org"
 
 # External url for issue reporting system or e-mail notification
 CONTACT_US_DESTINATION = ""
@@ -214,13 +214,18 @@ DJANGOSHERD_FLICKR_APIKEY = None
 # Update this variable with your site's Flowplayer installation
 # See README.markdown for more information
 # expected: http://<server>/<directory>/flowplayer-3.2.15.swf
-FLOWPLAYER_SWF_LOCATION = None
+#FLOWPLAYER_SWF_LOCATION = None
 # Specify your own plugin versions here. The player looks in the same
 # http://<server>/<directory>/ specified above.
-FLOWPLAYER_AUDIO_PLUGIN = 'flowplayer.audio-3.2.10.swf'
-FLOWPLAYER_PSEUDOSTREAMING_PLUGIN = 'flowplayer.pseudostreaming-3.2.11.swf'
-FLOWPLAYER_RTMP_PLUGIN = 'flowplayer.rtmp-3.2.11.swf'
+#FLOWPLAYER_AUDIO_PLUGIN = 'flowplayer.audio-3.2.10.swf'
+#FLOWPLAYER_PSEUDOSTREAMING_PLUGIN = 'flowplayer.pseudostreaming-3.2.11.swf'
+#FLOWPLAYER_RTMP_PLUGIN = 'flowplayer.rtmp-3.2.11.swf'
 
+
+FLOWPLAYER_SWF_LOCATION='http://klein.dartmouth.edu/site_media/flowplayer/flowplayer-3.2.16.swf'
+FLOWPLAYER_AUDIO_PLUGIN = 'flowplayer.audio-3.2.10.swf'
+FLOWPLAYER_PSEUDOSTREAMING_PLUGIN = 'flowplayer.pseudostreaming-3.2.12.swf'
+FLOWPLAYER_RTMP_PLUGIN = 'flowplayer.rtmp-3.2.12.swf'
 
 DEFAULT_COLLABORATION_POLICY = policies.InstructorManaged()
 

@@ -7,9 +7,11 @@
     <script type="text/javascript" src="/site_media/js/backbone/backbone-min.js"></script>
     
     <script type="text/template" id="vocabulary-template">
+
+<!-- LEFT COLUMN YO -->
         <div class="vocabularies">           
             <ul>
-                <% for (var i=0; i < vocabularies.length; i++) { %>
+                <% for (var i=0; i < vocabularies.length; i++) { %> 
                     <li id="vocabulary-wrapper-<%=vocabularies[i].id%>" data-id="<%=vocabularies[i].id%>">
                         <div class="arrow"></div>
                         <div class="vocabulary-display">
@@ -38,8 +40,9 @@
                         </div>
                     </li>
                 <% } %>
-
-                <% if (vocabularies.length < 3) { %>
+<!-- FIN LEFT COLUMN YO -->
+                    
+                <% if (vocabularies.length < 9999) { %>
                     <li class="create-vocabulary">
                         <div class="vocabulary-display">
                             <a href="#new-vocabulary" class="icon-link create-vocabulary-open">
@@ -62,6 +65,11 @@
                     </li>
                 <% } %>
             </ul>       
+
+
+<!--  RIGHT HAND COLUMN -->
+
+
             <% for (var i=0; i < vocabularies.length; i++) { %>
                 <div id="vocabulary-<%=vocabularies[i].id%>">
                     <h2><%=vocabularies[i].display_name%> Concept</h2>
@@ -109,7 +117,12 @@
                 </div>
             <% } %>
 
-            <% if (vocabularies.length < 3) { %>
+
+
+
+
+
+            <% if (vocabularies.length < 9999) { %>
                 <div id="new-vocabulary"></div>
             <% } %>
         </div>
